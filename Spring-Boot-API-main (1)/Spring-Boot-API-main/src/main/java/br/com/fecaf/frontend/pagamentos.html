@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Titanium Bank - Pagamentos</title>
+    <link rel="stylesheet" href="../frontend/pagamentos.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+</head>
+<body>
+<div class="container">
+    <!-- Sidebar: menu lateral de navegação -->
+    <aside class="sidebar">
+        <h2>Titanium Bank</h2>
+        <nav>
+            <ul>
+                <li><a href="home.html"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
+                <li><a href="cartoes.html"><i class="fas fa-credit-card"></i> Cartão</a></li>
+                <li><a href="emprestimo.html"><i class="fas fa-hand-holding-usd"></i> Empréstimo</a></li>
+                <li><a href="debito-automatico.html"><i class="fas fa-sync-alt"></i> Débito Automático</a></li>
+                <li><a href="seguranca.html"><i class="fas fa-shield-alt"></i> Segurança</a></li>
+                <li><a href="pix.html"><i class="fas fa-bolt"></i> Pix</a></li>
+                <li><a href="pagamentos.html" class="active"><i class="fas fa-barcode"></i> Pagamentos</a></li>
+                <!-- Botão Sair com confirmação -->
+                <li><a href="#" onclick="confirmarSaida(event)"><i class="fas fa-sign-out-alt"></i> Sair</a></li>
+            </ul>
+        </nav>
+    </aside>
+
+    <!-- Conteúdo principal da página -->
+    <main class="content">
+        <!-- Cabeçalho da página Pagamentos -->
+        <header>
+            <h1>Pagamentos</h1>
+        </header>
+
+        <!-- Card principal de funcionalidades de pagamentos -->
+        <section class="dashboard-cards">
+            <div class="card">
+                <h3><i class="fas fa-barcode"></i> Área de Pagamentos</h3>
+                <p>
+                    Pague boletos, contas, faturas ou faça recargas de celular de forma rápida e segura.
+                </p>
+                <button class="btn-primary">Realizar Pagamento</button>
+            </div>
+        </section>
+    </main>
+</div>
+
+<script>
+    // Função para confirmar a saída do usuário
+    function confirmarSaida(event) {
+      event.preventDefault();
+
+      const sair = confirm("Deseja realmente sair?");
+      if (sair) {
+        window.location.href = 'login.html'; // Ajuste o caminho se necessário
+      }
+    }
+</script>
+
+
+
+<script src="../frontend/titanium.js"></script>
+
+</body>
+</html>

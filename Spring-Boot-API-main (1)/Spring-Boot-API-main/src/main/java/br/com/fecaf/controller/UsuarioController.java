@@ -17,7 +17,7 @@ public class UsuarioController {
     @Autowired
     private UsuarioService usuarioService;
 
-    @PostMapping
+    @PostMapping("/cadUsuario")
     public ResponseEntity<Usuario>criarUsuario(@RequestBody Usuario usuario) {
         Usuario novoUsuario = usuarioService.criarUsuario(usuario);
         return new ResponseEntity<>(novoUsuario, HttpStatus.CREATED);

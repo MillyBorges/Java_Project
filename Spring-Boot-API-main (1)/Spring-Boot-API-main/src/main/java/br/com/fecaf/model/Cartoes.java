@@ -15,7 +15,7 @@ public class Cartoes {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    private Conta conta;
+   // private Conta conta;
     private String numero;
     private LocalDate validade;
     private String cvv;

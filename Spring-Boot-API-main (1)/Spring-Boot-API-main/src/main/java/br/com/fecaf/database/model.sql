@@ -74,4 +74,7 @@ CREATE TABLE cartoes (
     FOREIGN KEY (conta_id) REFERENCES contas(id)
 );
 
+
+
+
 SELECT * FROM usuarios, contas, transacoes, pix_chaves, emprestimos, pagamentos, cartoes;

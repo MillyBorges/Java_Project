@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Sistema Bancário</title>
+    <link rel="stylesheet" href="../frontend/home.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+</head>
+
+<body>
+<div class="container">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <h2>Titanium Bank</h2>
+        <nav>
+            <ul>
+                <li><a href="home.html"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
+                <li><a href="cartoes.html"><i class="fas fa-credit-card"></i> Cartão</a></li>
+                <li><a href="emprestimo.html"><i class="fas fa-hand-holding-usd"></i> Empréstimo</a></li>
+                <li><a href="debito-automatico.html"><i class="fas fa-sync-alt"></i> Débito Automático</a></li>
+                <li><a href="seguranca.html"><i class="fas fa-shield-alt"></i> Segurança</a></li>
+                <li><a href="pix.html"><i class="fas fa-bolt"></i> Pix</a></li>
+                <li><a href="pagamentos.html"><i class="fas fa-barcode"></i> Pagamentos</a></li>
+                <!-- Botão Sair com confirmação -->
+                <li><a href="#" onclick="confirmarSaida(event)"><i class="fas fa-sign-out-alt"></i> Sair</a></li>
+            </ul>
+        </nav>
+    </aside>
+
+    <!-- Conteúdo principal -->
+    <main class="content">
+        <section class="welcome-card">
+            <h1>Bem-vindo de volta 👋</h1>
+            <p>Acompanhe o resumo da sua conta bancária</p>
+            <div class="balance-box">
+                <h2>Saldo Atual</h2>
+                <p class="balance">R$ 0,00</p>
+            </div>
+        </section>
+
+        <section class="dashboard-cards">
+            <a href="cartoes.html" class="card-link">
+                <div class="card">
+                    <h3><i class="fas fa-credit-card"></i> Cartão</h3>
+                    <p>Gerencie seus cartões, veja limites, faturas e bloqueios.</p>
+                    <button class="btn-primary">Ver Cartões</button>
+                </div>
+            </a>
+            <a href="emprestimo.html" class="card-link">
+                <div class="card">
+                    <h3><i class="fas fa-hand-holding-usd"></i> Empréstimo</h3>
+                    <p>Simule e solicite empréstimos rapidamente.</p>
+                    <button class="btn-primary">Simular Empréstimos</button>
+                </div>
+            </a>
+            <a href="debito-automatico.html" class="card-link">
+                <div class="card">
+                    <h3><i class="fas fa-sync-alt"></i> Débito Automático</h3>
+                    <p>Ative ou gerencie seus débitos automáticos.</p>
+                    <button class="btn-primary">Gerenciar Débito</button>
+                </div>
+            </a>
+            <a href="seguranca.html" class="card-link">
+                <div class="card">
+                    <h3><i class="fas fa-shield-alt"></i> Segurança</h3>
+                    <p>Acesse configurações de segurança e privacidade.</p>
+                    <button class="btn-primary">Gerenciar Segurança</button>
+                </div>
+            </a>
+            <a href="pix.html" class="card-link">
+                <div class="card">
+                    <h3><i class="fas fa-bolt"></i> Pix</h3>
+                    <p>Envie, receba ou gerencie suas chaves Pix.</p>
+                    <button class="btn-primary">Acessar pix</button>
+                </div>
+            </a>
+            <a href="pagamentos.html" class="card-link">
+                <div class="card">
+                    <h3><i class="fas fa-barcode"></i> Pagamentos</h3>
+                    <p>Pague boletos, contas e faça recargas.</p>
+                    <button class="btn-primary">Realizar pagamentos</button>
+                </div>
+            </a>
+        </section>
+    </main>
+</div>
+
+<script>
+    function confirmarSaida(event) {
+      event.preventDefault(); // Evita o redirecionamento imediato
+
+      const sair = confirm("Deseja realmente sair?");
+      if (sair) {
+        // Redireciona para a página de login
+        window.location.href = 'titanium.html';
+      }
+      // Se clicar em "Não", não faz nada e permanece na página
+    }
+</script>
+
+
+
+<script src="../frontend/titanium.js"></script>
+
+
+</body>
+</html>

@@ -16,11 +16,11 @@ import org.springframework.web.bind.annotation.RestController;
 public class TransacaoController {
 
     @Autowired
-    private TransacaoService trasacaoService;
+    private TransacaoService transacaoService;
 
     @PostMapping
     public ResponseEntity<Transacoes>realizarTransacao(@RequestBody Transacoes transacoes){
-        Transacoes novaTrasacao = trasacaoService.realizarTransacao(transacoes);
+        Transacoes novaTrasacao = transacaoService.realizarTransacao(transacoes);
         return new ResponseEntity<>(novaTrasacao, HttpStatus.CREATED);
     }
 

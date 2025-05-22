@@ -14,7 +14,7 @@ public class Conta {
     // Atributos
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private Long id;
     @Column(unique = true)
     private String numeroConta;
     private String agencia = "XX-666";
@@ -25,8 +25,8 @@ public class Conta {
     @JoinColumn(name = "usuario_id")
     private Usuario usuario;
 
-    @OneToMany(mappedBy = "conta", cascade = CascadeType.ALL)
-    private List<Transacoes> transacoes;
+    //@OneToMany(mappedBy = "contas", cascade = CascadeType.ALL)
+    //private List<Transacoes> transacoes;
 
 
     // Construtor
@@ -94,11 +94,11 @@ public class Conta {
         this.usuario = usuario;
     }
 
-    public List<Transacoes> getTransacoes() {
-        return transacoes;
-    }
+   // public List<Transacoes> getTransacoes() {
+    //    return transacoes;
+    //}
 
-    public void setTransacoes(List<Transacoes> transacoes) {
-        this.transacoes = transacoes;
-    }
+    //public void setTransacoes(List<Transacoes> transacoes) {
+    //    this.transacoes = transacoes;
+   // }
 }

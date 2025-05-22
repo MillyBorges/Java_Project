@@ -8,13 +8,13 @@ import java.time.LocalDateTime;
 
 @Enabled
 @Entity
-@Table(name = "emprestimo")
+@Table(name = "emprestimos")
 
 public class Emprestimo {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    private Conta conta;
+   // private Conta conta;
     private BigDecimal valorSolicitado;
     private BigDecimal valorTotal;
     private int parcelas;

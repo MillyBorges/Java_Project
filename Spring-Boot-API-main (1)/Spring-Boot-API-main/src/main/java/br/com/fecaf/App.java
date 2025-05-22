@@ -15,7 +15,7 @@ public class App {
     @Bean
     CommandLineRunner initialization () {
         return args -> {
-            System.out.println("O servidor está no ar !");
+            System.out.println("Bem vindo ao Titanium Bank");
         };
     }
 

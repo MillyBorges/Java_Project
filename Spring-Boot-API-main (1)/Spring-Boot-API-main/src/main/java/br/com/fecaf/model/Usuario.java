@@ -1,11 +1,14 @@
 package br.com.fecaf.model;
 
-
 import jdk.jfr.Enabled;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.persistence.*;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 import java.util.Objects;
 
@@ -13,7 +16,7 @@ import java.util.Objects;
 @Entity
 @Table(name = "usuarios")
 
-public class Usuario {
+public class Usuario implements UserDetails {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -34,10 +37,11 @@ public class Usuario {
     // Construtor
     public Usuario() {}
 
-    public Usuario(String nome, String cpf, String senhaHash) {
+    public Usuario(String nome, String cpf, String senhaHash, String email) {
         this.nome = nome;
         this.cpf = cpf;
         this.senhaHash = senhaHash;
+        this.email = email;
     }
 
 
@@ -104,6 +108,51 @@ public class Usuario {
 
     public void setContas(List<Conta> contas) {
         this.contas = contas;
+    }
+
+
+    //UserDetails
+    // Métodos da interface UserDetails
+
+    @Override
+    public String getUsername() {
+        return nome;
+    }
+
+    @Override
+    public String getPassword() {
+        return senhaHash;
+    }
+
+    @Override
+    public Collection<? extends GrantedAuthority> getAuthorities() {
+        // Aqui você pode retornar as roles/authorities do usuário
+        // Por enquanto, retornamos uma lista vazia (sem permissões)
+        return Collections.emptyList();
+    }
+
+    @Override
+    public boolean isAccountNonExpired() {
+        // Retorne true se a conta não expirou
+        return true;
+    }
+
+    @Override
+    public boolean isAccountNonLocked() {
+        // Retorne true se a conta não está bloqueada
+        return true;
+    }
+
+    @Override
+    public boolean isCredentialsNonExpired() {
+        // Retorne true se as credenciais (senha) não expiraram
+        return true;
+    }
+
+    @Override
+    public boolean isEnabled() {
+        // Retorne true se o usuário está habilitado
+        return true;
     }
 
     // Equals e HashCode

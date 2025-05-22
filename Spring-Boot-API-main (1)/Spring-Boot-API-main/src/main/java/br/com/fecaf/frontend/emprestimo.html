@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Titanium Bank - Simulação de Empréstimo</title>
+    <link rel="stylesheet" href="../frontend/emprestimo.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+          integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
+          crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+<div class="container">
+    <!-- Sidebar: menu lateral igual para navegação -->
+    <aside class="sidebar">
+        <h2>Titanium Bank</h2>
+        <nav>
+            <ul>
+                <li><a href="home.html"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
+                <li><a href="cartoes.html"><i class="fas fa-credit-card"></i> Cartão</a></li>
+                <li><a href="emprestimo.html" class="active"><i class="fas fa-hand-holding-usd"></i> Empréstimo</a></li>
+                <li><a href="debito-automatico.html"><i class="fas fa-sync-alt"></i> Débito Automático</a></li>
+                <li><a href="seguranca.html"><i class="fas fa-shield-alt"></i> Segurança</a></li>
+                <li><a href="pix.html"><i class="fas fa-bolt"></i> Pix</a></li>
+                <li><a href="pagamentos.html"><i class="fas fa-barcode"></i> Pagamentos</a></li>
+                <!-- Botão Sair com confirmação -->
+                <li><a href="#" onclick="confirmarSaida(event)"><i class="fas fa-sign-out-alt"></i> Sair</a></li>
+            </ul>
+        </nav>
+    </aside>
+
+    <!-- Conteúdo principal -->
+    <main class="content">
+        <!-- Cabeçalho da página -->
+        <header>
+            <h1>Simulação de Empréstimo</h1>
+        </header>
+
+        <!-- Seção principal com formulário de simulação -->
+        <section class="simulation-section">
+            <div class="card">
+                <h2>Simule seu empréstimo</h2>
+                <form id="loan-form">
+                    <label for="amount">Valor desejado (R$):</label>
+                    <input type="number" id="amount" name="amount" min="1000" max="50000" step="100" required />
+
+                    <label for="term">Prazo (meses):</label>
+                    <select id="term" name="term" required>
+                        <option value="" disabled selected>Selecione o prazo</option>
+                        <option value="6">6 meses</option>
+                        <option value="12">12 meses</option>
+                        <option value="24">24 meses</option>
+                        <option value="36">36 meses</option>
+                        <option value="48">48 meses</option>
+                        <option value="60">60 meses</option>
+                    </select>
+
+                    <button type="submit" class="btn-primary">Simular</button>
+                </form>
+            </div>
+
+            <!-- Resultado da simulação -->
+            <div class="card simulation-result" style="display:none;">
+                <h3>Resultado da Simulação</h3>
+                <p><strong>Valor solicitado:</strong> R$ <span id="result-amount">0,00</span></p>
+                <p><strong>Prazo:</strong> <span id="result-term">0</span> meses</p>
+                <p><strong>Taxa de juros mensal:</strong> 1,5%</p>
+                <p><strong>Parcela mensal:</strong> R$ <span id="result-installment">0,00</span></p>
+                <p><strong>Total a pagar:</strong> R$ <span id="result-total">0,00</span></p>
+            </div>
+        </section>
+    </main>
+</div>
+
+<script>
+    // Função para confirmar a saída do usuário
+    function confirmarSaida(event) {
+      event.preventDefault();
+
+      const sair = confirm("Deseja realmente sair?");
+      if (sair) {
+        window.location.href = 'login.html'; // Ajuste o caminho se necessário
+      }
+    }
+
+    // Script simples para simular empréstimo com juros compostos fixos de 1,5% ao mês
+    const form = document.getElementById('loan-form');
+    const resultSection = document.querySelector('.simulation-result');
+
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      const amount = parseFloat(form.amount.value);
+      const term = parseInt(form.term.value);
+      const monthlyInterest = 0.015; // 1,5% ao mês
+
+      // Fórmula de cálculo da parcela com juros compostos:
+      // P = (A * i) / (1 - (1 + i)^-n)
+      const installment = (amount * monthlyInterest) / (1 - Math.pow(1 + monthlyInterest, -term));
+      const total = installment * term;
+
+      // Atualiza o resultado na tela
+      document.getElementById('result-amount').textContent = amount.toFixed(2).replace('.', ',');
+      document.getElementById('result-term').textContent = term;
+      document.getElementById('result-installment').textContent = installment.toFixed(2).replace('.', ',');
+      document.getElementById('result-total').textContent = total.toFixed(2).replace('.', ',');
+
+      resultSection.style.display = 'block';
+    });
+</script>
+
+
+
+<script src="../frontend/titanium.js"></script>
+
+
+</body>
+</html>
+emprestimo.html
+Exibindo Login.html.
