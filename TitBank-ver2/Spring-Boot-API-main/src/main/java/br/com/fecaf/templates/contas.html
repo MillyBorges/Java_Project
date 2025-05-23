@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Titanium Bank - Pix</title>
+    <link rel="stylesheet" href="../templates/home.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+</head>
+<body>
+<div class="container">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <h2>Titanium Bank</h2>
+        <nav>
+            <ul>
+                <li><a href="home.html"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
+                <li><a href="cartoes.html"><i class="fas fa-credit-card"></i> Cartão</a></li>
+                <li><a href="emprestimo.html"><i class="fas fa-hand-holding-usd"></i> Empréstimo</a></li>
+                <li><a href="debito-automatico.html"><i class="fas fa-sync-alt"></i> Débito Automático</a></li>
+                <li><a href="seguranca.html"><i class="fas fa-shield-alt"></i> Segurança</a></li>
+                <li><a href="pix.html" class="active"><i class="fas fa-bolt"></i> Pix</a></li>
+                <li><a href="pagamentos.html"><i class="fas fa-barcode"></i> Pagamentos</a></li>
+                <li><a href="#" onclick="confirmarSaida(event)"><i class="fas fa-sign-out-alt"></i> Sair</a></li>
+            </ul>
+        </nav>
+    </aside>
+
+
+    <div class="main-content">
+        <header>
+            <h1>Titanium Bank</h1>
+            <nav>
+                <a href="home.html">Home</a>
+                <a href="pix.html">PIX</a>
+            </nav>
+        </header>
+
+        <main>
+            <h2>Minhas Contas</h2>
+            <div id="contasList"></div>
+        </main>
+    </div>
+</div>
+
+<script src="../templates/script.js"></script>
+</body>
+</html>
